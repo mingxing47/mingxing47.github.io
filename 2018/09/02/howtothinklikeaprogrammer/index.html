@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="本文是我参与掘金翻译计划时翻译的一篇文章。往后我会在博客中开通一个类别掘金翻译计划，专门存放参与掘金翻译计划翻译的文章集合。聚沙成塔，希望通过点滴积累不断提高自己的英语能力和技术水平。">
+<meta name="keywords" content="翻译,方法论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译] 如何像程序员般思考 —— 蕴含在问题解决中的经验">
+<meta property="og:url" content="https://www.simonming.com/2018/09/02/howtothinklikeaprogrammer/index.html">
+<meta property="og:site_name" content="Ming&#39;s Blog">
+<meta property="og:description" content="本文是我参与掘金翻译计划时翻译的一篇文章。往后我会在博客中开通一个类别掘金翻译计划，专门存放参与掘金翻译计划翻译的文章集合。聚沙成塔，希望通过点滴积累不断提高自己的英语能力和技术水平。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*HTRqXgr7CVtRBsyTxurQew.jpeg">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*oMycTRCdT2euGs9WbLd7kw.jpeg">
+<meta property="og:updated_time" content="2019-07-20T16:02:32.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[译] 如何像程序员般思考 —— 蕴含在问题解决中的经验">
+<meta name="twitter:description" content="本文是我参与掘金翻译计划时翻译的一篇文章。往后我会在博客中开通一个类别掘金翻译计划，专门存放参与掘金翻译计划翻译的文章集合。聚沙成塔，希望通过点滴积累不断提高自己的英语能力和技术水平。">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*HTRqXgr7CVtRBsyTxurQew.jpeg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://www.simonming.com/2018/09/02/howtothinklikeaprogrammer/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>[译] 如何像程序员般思考 —— 蕴含在问题解决中的经验 | Ming's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ming's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">精进</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.simonming.com/2018/09/02/howtothinklikeaprogrammer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Simon Ming">
+      <meta itemprop="description" content="有趣是这个世界上最高贵的品质">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ming's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[译] 如何像程序员般思考 —— 蕴含在问题解决中的经验
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-02 21:15:34" itemprop="dateCreated datePublished" datetime="2018-09-02T21:15:34+08:00">2018-09-02</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-21 00:02:32" itemprop="dateModified" datetime="2019-07-21T00:02:32+08:00">2019-07-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/translatePlan/" itemprop="url" rel="index"><span itemprop="name">掘金翻译计划</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/09/02/howtothinklikeaprogrammer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/02/howtothinklikeaprogrammer/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 Views:  
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文是我参与掘金翻译计划时翻译的一篇文章。往后我会在博客中开通一个类别<code>掘金翻译计划</code>，专门存放参与掘金翻译计划翻译的文章集合。聚沙成塔，希望通过点滴积累不断提高自己的英语能力和技术水平。</p>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>原文地址：<a href="https://medium.freecodecamp.org/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2" target="_blank" rel="noopener">How to think like a programmer — lessons in problem solving</a></li>
+<li>原文作者：<a href="https://medium.freecodecamp.org/@richardreeze?source=post_header_lockup" target="_blank" rel="noopener">Richard Reis</a></li>
+<li>译文出自：<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+<li>本文永久链接：<a href="https://github.com/xitu/gold-miner/blob/master/TODO1/how-to-think-like-a-programmer-lessons-in-problem-solving.md" target="_blank" rel="noopener">https://github.com/xitu/gold-miner/blob/master/TODO1/how-to-think-like-a-programmer-lessons-in-problem-solving.md</a></li>
+<li>译者：<a href="https://github.com/mingxing47" target="_blank" rel="noopener">mingxing47</a></li>
+<li>校对者：<a href="https://github.com/rockyzhengwu" target="_blank" rel="noopener">rockyzhengwu</a> <a href="https://github.com/Park-ma" target="_blank" rel="noopener">Park-ma</a></li>
+</ul>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*HTRqXgr7CVtRBsyTxurQew.jpeg" alt></p>
+<p>原文作者 <a href="https://twitter.com/richardreeze" target="_blank" rel="noopener">Richard Reis</a></p>
+<p>如果你对编程感兴趣，那么你之前可能会听说过这样的 <code>一句话</code>：</p>
+<blockquote>
+<p>“每个人都应该学习编程，因为它会教你如何思考。” —— 史蒂夫·乔布斯</p>
+</blockquote>
+<p>你可能还想知道，像程序员一样思考到底意味着什么？同时，要<strong>怎么样</strong>才能做到呢？</p>
+<p>从本质上讲，像程序员般思考是<strong>一种更加有效的解决问题的方法</strong>。</p>
+<p>通过这篇文章，我的目的是教会你用那样的方式去思考问题。</p>
+<p>到最后，你就会更加清楚地知道，要通过哪些步骤才能成为一个更好的难题终结者。</p>
+<h4 id="这件事为什么很重要？"><a href="#这件事为什么很重要？" class="headerlink" title="这件事为什么很重要？"></a>这件事为什么很重要？</h4><p>解决问题是最根本的元技能。</p>
+<p>我们所有人都会遇到或大或小的各种各样的难题。而很多时候，我们如何去解决这些问题却显得，可以说…很随机。</p>
+<p>除非你有一套解决问题的体系，否则如下很可能就是你“解决”问题的方法（这也正是我编程之初常常走的歧途）：</p>
+<ol>
+<li>尝试某种解决方案。</li>
+<li>如果这种解决方案不凑效，那么换另外一个进行尝试。</li>
+<li>如果另一种还是不凑效，那么不断重复步骤 2，直到走大运恰好碰到解决这个问题的方法。</li>
+</ol>
+<p>你看，某些时候可能你很走运，能够把问题解决。但这却是解决问题中最最糟糕的方法。同时，这对你的时间造成了巨大浪费。</p>
+<p>最好的方法包含了以下的两个方面：a）拥有一套解决问题的框架；b）不断<strong>练习实践这套框架</strong>。</p>
+<blockquote>
+<p>“几乎所有的雇主都把解决问题的能力放在首位。</p>
+</blockquote>
+<blockquote>
+<p>解决问题的能力几乎是所有雇主一致追寻的最重要的品质，甚至比精通编程语言、调试和系统设计更为重要。</p>
+</blockquote>
+<blockquote>
+<p>证明计算思维或者说分解大型复杂问题的能力，对于一份工作来说，至少与其所需的基本技术技能一样有价值（就算不是更有价值的话）。” —— Hacker Rank （<a href="https://research.hackerrank.com/developer-skills/2018/" target="_blank" rel="noopener">2018 年开发者技能报告</a>）</p>
+</blockquote>
+<h4 id="拥有一套解决问题的框架"><a href="#拥有一套解决问题的框架" class="headerlink" title="拥有一套解决问题的框架"></a>拥有一套解决问题的框架</h4><p>为了找到正确的框架，我遵循了蒂姆·费里斯（Tim Ferriss）关于学习的书<a href="https://www.amazon.com/dp/0547884591/?tag=richardreeze-20" target="_blank" rel="noopener">《4 小时厨师》（the 4-Hour Che）</a> 中的建议。</p>
+<p>这个建议让我采访了两位真正令人印象深刻的人：<a href="https://www.linkedin.com/in/cjordanball/" target="_blank" rel="noopener">C. Jordan Ball</a>（在 <a href="https://coderbyte.com/" target="_blank" rel="noopener">Coderbyte</a> 65,000+ 用户中排名第一或者第二），以及 <a href="http://vantonspraul.com/" target="_blank" rel="noopener">V. Anton Spraul</a>（书籍 “<a href="https://www.amazon.com/dp/1593274246/?tag=richardreeze-20" target="_blank" rel="noopener">像程序员般思考：创造性解决难题导论</a>” 的作者）。</p>
+<p>我问了他们相同的问题，你猜猜结果如何？他们的答案基本是一致的！</p>
+<p>很快，你也会认识到这些答案。</p>
+<p>作者注：这并不意味着他们用相同的方法去做每一件事。每个人都是不同的，你和他们也是不同的。但如果你遵循了我们都认同的好的原则，以此开始，你会走得更远更快。</p>
+<blockquote>
+<p>“我看到的新手程序员犯的最大的错误就是专注于学习编程语言语法而不是去学习如何解决问题。” —— <a href="http://vantonspraul.com/" target="_blank" rel="noopener">V. Anton Spraul</a></p>
+</blockquote>
+<p>那么，遇到新问题时该怎么做呢？</p>
+<p>下面就是解决问题的一些步骤：</p>
+<h4 id="1-理解问题"><a href="#1-理解问题" class="headerlink" title="1. 理解问题"></a>1. 理解问题</h4><p>准确地理解问题所问的点是什么。绝大多数的难题，仅难在你不能理解这些问题（这就是为什么要把理解问题放在第一步的原因）。</p>
+<p>如何知道你已经理解了一个问题？当你能用语言描述它的时候就真的理解了。</p>
+<p>你记忆中是否有这样一个场景，当你被困在一个问题中时，你开始解释它，然后突然之间，你发现了之前从来没有考虑过的逻辑漏洞？</p>
+<p>绝大多数的程序员都应该对这种感觉深有体会。</p>
+<p>这就是为什么你要把你的问题写下来、画个图或者告诉他人的原因（另外一件事是…有些程序员会使用<a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging" target="_blank" rel="noopener">小黄鸭调试法</a>来解决问题）。</p>
+<blockquote>
+<p>“如果你无法简单地解释清楚某件事，你就还没有弄懂它。” —— Richard Feynman</p>
+</blockquote>
+<h4 id="2-做出计划"><a href="#2-做出计划" class="headerlink" title="2. 做出计划"></a>2. 做出计划</h4><p>在没有计划之前千万不要一头扎入问题的解决当中（除非你希望能够蒙混过关）。一定要做好计划！</p>
+<p>如果你无法写下做事情的确切步骤，那么什么都帮不了你。</p>
+<p>在编程中，这意味着不要一开始就强行暴力破解。一定要先给你大脑一些时间来分析问题和处理信息。</p>
+<p>为了获得一个好的解决问题计划，先回答一下如下问题：</p>
+<p>“在已有输入 X 的前提下，如果要得到返回值 Y，将要进行哪些必要的步骤？”</p>
+<p>作者注：程序员们有一种很棒的工具来解决这个问题…那就是注释！</p>
+<h4 id="3-划分问题单元"><a href="#3-划分问题单元" class="headerlink" title="3. 划分问题单元"></a>3. 划分问题单元</h4><p>注意了，这是所有步骤中最最重要的。</p>
+<p>不要尝试去解决一个大的问题。这样做你肯定会哭的。</p>
+<p>相反，应该把大问题分解成多个更容易解决的的子问题。</p>
+<p>然后，对这些子问题各个击破。从最简单的问题开始吧。最简单的问题意味着你知道问题的答案（或者至少更为靠近答案）。</p>
+<p>除此之外，最简单的问题还意味着这个子问题的解决并不依赖于其他问题的解决。</p>
+<p>一旦你把每一个子问题都解决了，然后就把每一个小点连接起来。</p>
+<p>串联起你的每一个<strong>“子方案”</strong>将会让你获得最终的原始问题的解决方案。祝贺你，你已经解决了问题！</p>
+<p>这种解决问题的技术是所有问题解决的基石。牢牢记住它（如果有必要，请再次阅读这一步）。</p>
+<blockquote>
+<p>“如果我能教给每个新手程序员一个解决问题的技巧，那就是‘减少问题的技术’。</p>
+</blockquote>
+<blockquote>
+<p>例如，如果你是一个新程序员，然后你被要求去写一个程序，读取 10 个数字，然后算出哪个数字是第三大的。对于一个全新的程序员来说，这可能是一项艰巨的任务，尽管它只需要基本的编程语法。</p>
+</blockquote>
+<blockquote>
+<p>如果你陷入困境，你应该把问题简化。先不考虑找第三大的数，如果你去找最大的数你该如何做？还是太困难？那如果要从三个数字中找到最大的你该怎么做呢？如果从两个数字中寻找呢？</p>
+</blockquote>
+<blockquote>
+<p>不断简化问题直到你能写出解决方案。然后稍微把问题进行扩展，并写下相应的解决方法，不断扩展下去直到源问题被解决。” —— <a href="http://vantonspraul.com/" target="_blank" rel="noopener">V. Anton Spraul</a></p>
+</blockquote>
+<h4 id="4-陷入问题当中？"><a href="#4-陷入问题当中？" class="headerlink" title="4. 陷入问题当中？"></a>4. 陷入问题当中？</h4><p>现在，你可能正坐在那里想到：“嘿，Richard… 这方法很酷，但是如果我卡住了，然后连子问题都无法解决该怎么办？”</p>
+<p>首先呢，进行一下深呼吸。其次，这件事是公平的。</p>
+<p>不要担心，朋友。这种情况会在每个人身上发生！</p>
+<p>不同的是最好的程序员/问题解决者对 bugs 或错误更感兴趣而不是恼怒。</p>
+<p>事实上，当不幸面临难题时，这里有三件事可以尝试：</p>
+<ul>
+<li>调试： 一步一步检查你的解决方案，然后去试图寻找到底那里出错了。程序员们把这件事称为<strong>调试</strong>（事实上，这事全是调试器做的）。</li>
+</ul>
+<blockquote>
+<p>“调试的艺术在于找出你真正告诉你的程序去做的事情，而不是你所认为你已经告诉了你的程序去做的事情。” —— Andrew Singer</p>
+</blockquote>
+<ul>
+<li>重新考虑： 后退一步。从另外一个角度来看待这个问题。是否有可以抽象成更一般的方法？</li>
+</ul>
+<blockquote>
+<p>“有时候我们迷失在问题的细节里，而忽略了能在更一般层面上解决问题的通用方法。 […]</p>
+</blockquote>
+<blockquote>
+<p>当然，最经典的例子是求连续自然数和， 1 + 2 + 3 + … + n，非常年轻的高斯很快认识到答案是简单的 n(n+1)/2，这样就不用去做加法了。” —— <a href="https://www.linkedin.com/in/cjordanball/" target="_blank" rel="noopener">C. Jordan Ball</a></p>
+</blockquote>
+<p>作者注：另外一种重新评估的方式是重新开始。删除所有内容，用全新的眼光重新开始。我是认真的，你会惊讶于这是多么的有效。</p>
+<ul>
+<li>搜索：啊哈，你没有读错，好好去搜索一下。无论你遇到什么样的问题，很可能已经有人解决过了。去找到那个人或者找到那种解决方法。事实上，即使你解决了问题，你也可以再去调查一下！（你可以从其他人的解决方案中学到很多的东西。）</li>
+</ul>
+<p>注意：不要去寻找解决一个大问题的方法。只去寻找解决子问题的方案。这是为什么呢？因为除非你努力（哪怕是一点点），否则你什么都学不到。如果你什么都没有学到，你就是在浪费时间。</p>
+<h4 id="不断实践练习这套框架"><a href="#不断实践练习这套框架" class="headerlink" title="不断实践练习这套框架"></a>不断实践练习这套框架</h4><p>不要期望仅仅一个星期之后就能变得很棒。如果你想成为一个好的问题解决者，那就多去解决一些问题吧！</p>
+<p>练习、练习、再练习。迟早你会意识到“这个问题可以通过 &lt;在这里插入概念&gt; 轻松解决”。</p>
+<p>如何去练习呢？这里有很多的选择！</p>
+<p>象棋谜题、数学难题、数独、围棋、大富翁、电子游戏、加密猫，等等等等。</p>
+<p>事实上，成功人士的一个普遍模式是他们有着不断练习“微观解决问题”的习惯。例如，彼得·泰尔 (Peter Thiel) 通过下棋，埃隆·马斯克 (Elon Musk) 通过玩电子游戏来进行练习一样。</p>
+<blockquote>
+<p>“拜伦•里夫斯 (Byron Reeves) 说，‘如果你想知道未来三到五年的企业领导是什么样的，那就看看网络游戏正在发生什么吧。’”</p>
+</blockquote>
+<blockquote>
+<p>快进到今天。埃隆·马斯克（Elon Musk）、雷德·霍夫曼（Reid Hoffman）、马克·扎克伯格（Mark Zuckerberg）和其他许多人都表示，游戏是他们成功建立公司的基石。” —— Mary Meeker（<a href="https://www.recode.net/2017/5/31/15693686/mary-meeker-kleiner-perkins-kpcb-slides-internet-trends-code-2017" target="_blank" rel="noopener">2017年互联网趋势报告</a>）</p>
+</blockquote>
+<p>这是否意味着你应该只玩电子游戏？并不是这样。</p>
+<p>但是电子游戏到底是关于什么的呢？没错，就是问题解决！</p>
+<p>所以，你应该做的是找到能够练习的机会。可以是能让你解决很多小问题的东西（理想情况下，这应该是你喜欢的东西）。</p>
+<p>例如，我喜欢编程挑战。每天，我都试图解决至少一个挑战（通常在 <a href="https://coderbyte.com/" target="_blank" rel="noopener">Coderbyte</a> 上）。</p>
+<p>正如我所说，所有的问题都有相似的模式。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>以上就是全部内容！</p>
+<p>直至目前，你已经更好地了解了“像程序员般思考”究竟意味着什么。</p>
+<p>你也知道了解决问题是一种难以置信的技能（元技能）。</p>
+<p>如果这还不够，请注意，你还知道了要练习解决问题的技巧该做些什么！</p>
+<p><strong>啧啧啧</strong>… 听起来很酷，对吧？</p>
+<p>最后，祝你遇到很多问题。</p>
+<p>你没有读错，就是祝你遇到更多的问题。因为至少现在你知道怎么去解决问题了!（同时，你将会知道，每解决一个问题都会使你获得进步）。</p>
+<blockquote>
+<p>“就在你认为你已经成功跨越了一个藩篱时，你与另外一个障碍不期而遇。但这就是生活的奇妙之处。[…]</p>
+</blockquote>
+<blockquote>
+<p>生活就是一个不断突破桎梏的过程 —— 这是一些我们成长必须突破的阻碍。</p>
+</blockquote>
+<blockquote>
+<p>每次，你都会获取新知。</p>
+</blockquote>
+<blockquote>
+<p>每次，你都会变得更加强壮有力，睿智深邃和洞察非凡。</p>
+</blockquote>
+<blockquote>
+<p>每次，都会有一些挑战被你逾越，从而消失。直到最后所留下的：是那个最好的你。” —— Ryan Holiday （<a href="https://www.amazon.com/dp/1591846358/?tag=richardreeze-20" target="_blank" rel="noopener">绝境逢生的艺术 (The Obstacle is the Way)</a>）</p>
+</blockquote>
+<p>从现在开始，去解决一些问题吧！</p>
+<p>祝你好运 🙂</p>
+<p><strong>特别鸣谢</strong> <a href="https://www.linkedin.com/in/cjordanball/" target="_blank" rel="noopener">C. Jordan Ball</a> 和 <a href="http://vantonspraul.com/" target="_blank" rel="noopener">V. Anton Spraul</a>，他们给了我很多宝贵的建议。</p>
+<p>此外，如果没有 <a href="https://lambdaschool.com/" target="_blank" rel="noopener">Lambda School</a> 学校，我无法在如此短暂的时间内获得所有的编程知识。在这里我要非常感谢以及强烈推荐他们。</p>
+<p>感谢您的阅读！ 😊 如果您喜欢这篇文章，请您猛烈地把右手拍向左手，试一试您在 5 秒钟之内能够拍 👏 多少次吧。这是对您有益的手指有氧健身操，当然这也会帮助其他人看到这个故事。</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*oMycTRCdT2euGs9WbLd7kw.jpeg" alt></p>
+<p>在 Twitter 上向我 <a href="https://twitter.com/richardreeze" target="_blank" rel="noopener">“打个招呼”</a> 吧！</p>
+<blockquote>
+<p>如果发现译文存在错误或其他需要改进的地方，欢迎到 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 对译文进行修改并 PR，也可获得相应奖励积分。文章开头的 <strong>本文永久链接</strong> 即为本文在 GitHub 上的 MarkDown 链接。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a> 是一个翻译优质互联网技术文章的社区，文章来源为 <a href="https://juejin.im" target="_blank" rel="noopener">掘金</a> 上的英文分享文章。内容覆盖 <a href="https://github.com/xitu/gold-miner#android" target="_blank" rel="noopener">Android</a>、<a href="https://github.com/xitu/gold-miner#ios" target="_blank" rel="noopener">iOS</a>、<a href="https://github.com/xitu/gold-miner#前端" target="_blank" rel="noopener">前端</a>、<a href="https://github.com/xitu/gold-miner#后端" target="_blank" rel="noopener">后端</a>、<a href="https://github.com/xitu/gold-miner#区块链" target="_blank" rel="noopener">区块链</a>、<a href="https://github.com/xitu/gold-miner#产品" target="_blank" rel="noopener">产品</a>、<a href="https://github.com/xitu/gold-miner#设计" target="_blank" rel="noopener">设计</a>、<a href="https://github.com/xitu/gold-miner#人工智能" target="_blank" rel="noopener">人工智能</a>等领域，想要查看更多优质译文请持续关注 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金翻译计划</a>、<a href="http://weibo.com/juejinfanyi" target="_blank" rel="noopener">官方微博</a>、<a href="https://zhuanlan.zhihu.com/juejinfanyi" target="_blank" rel="noopener">知乎专栏</a>。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>获取新知比赞赏更重要</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Simon Ming WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/翻译/" rel="tag"># 翻译</a>
+          
+            <a href="/tags/方法论/" rel="tag"># 方法论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/25/gorpc01/" rel="prev" title="从零开始用 Golang 实现自己的 RPC 框架（01） —— 什么是 RPC 框架">
+                从零开始用 Golang 实现自己的 RPC 框架（01） —— 什么是 RPC 框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Simon Ming">
+  
+  <p class="site-author-name" itemprop="name">Simon Ming</p>
+  <div class="site-description motion-element" itemprop="description">有趣是这个世界上最高贵的品质</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/mingxing47" title="GitHub &rarr; https://github.com/mingxing47" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:mingxing_47@126.com" title="E-Mail &rarr; mailto:mingxing_47@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#这件事为什么很重要？"><span class="nav-number">1.</span> <span class="nav-text">这件事为什么很重要？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拥有一套解决问题的框架"><span class="nav-number">2.</span> <span class="nav-text">拥有一套解决问题的框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-理解问题"><span class="nav-number">3.</span> <span class="nav-text">1. 理解问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-做出计划"><span class="nav-number">4.</span> <span class="nav-text">2. 做出计划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-划分问题单元"><span class="nav-number">5.</span> <span class="nav-text">3. 划分问题单元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-陷入问题当中？"><span class="nav-number">6.</span> <span class="nav-text">4. 陷入问题当中？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不断实践练习这套框架"><span class="nav-number">7.</span> <span class="nav-text">不断实践练习这套框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结论"><span class="nav-number">8.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Simon Ming</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'Hjrgkkg076pLfoDvv6Myf6rn-gzGzoHsz',
+    appKey: 'Vg2lwx9otE51E3osM9SVRI7w',
+    placeholder: '来谈谈技术呗 o(*￣▽￣*)o',
+    avatar: 'identicon',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+
+</body>
+</html>
